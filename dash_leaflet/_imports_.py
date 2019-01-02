@@ -1,5 +1,11 @@
-from .DashLeaflet import DashLeaflet
+from .Map import Map
+from .Marker import Marker
+from .Popup import Popup
+from .TileLayer import TileLayer
 
 __all__ = [
-    "DashLeaflet"
+    "Map",
+    "Marker",
+    "Popup",
+    "TileLayer"
 ]
