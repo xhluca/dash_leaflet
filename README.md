@@ -2,6 +2,15 @@
 
 Dash Leaflet is a Dash component library.
 
+## Notes and Caveat
+
+* We are using yarn, which is why package-lock is deleted and we have yarn.lock
+* React Leaflet setup requires you to include the CSS inside the index.html, which doesn't work well if you want to import it directly in your code (i.e. for webpack). Please see the source code for `Marker.react.js`, and this issue: https://github.com/PaulLeCam/react-leaflet/issues/255#issuecomment-261904061
+* We need file-loader as a dev dependencies. Please see issue above.
+* Icons don't serve correctly.
+* The html elements passed by Dash are Connect objects, which for some reasons throws an error for the Popup component. Therefore, at the moment you can only pass a string, instead of an HTML element.
+
+
 Get started with:
 1. Install Dash and its dependencies: https://dash.plot.ly/installation
 2. Run `python usage.py`
