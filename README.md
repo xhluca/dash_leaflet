@@ -2,7 +2,7 @@
 
 Dash Leaflet is a Dash component library.
 
-[!demo](images/demo-leaflet.gif)
+![demo](images/demo-leaflet.gif)
 
 ## Notes and Caveat
 
