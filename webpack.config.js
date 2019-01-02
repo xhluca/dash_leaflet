@@ -55,6 +55,15 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use: [{
+                      loader: 'file-loader',
+                      options: {
+                        name: 'img/[name].[ext]'
+                      }
+                    }]
+                },
+                {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     use: {
@@ -62,15 +71,24 @@ module.exports = (env, argv) => {
                     },
                 },
                 {
-                    test: /\.css$/,
+                    test: /\leaflet.css$/,
                     use: [
+                        {loader: "style-loader"},
+                        {loader: "css-loader"}
+                    ]
+                },
+                {
+                    test: /\.css$/,
+                    exclude: /\leaflet.css$/,
+                    use: [
+                        {loader: "style-loader"},
                         {
-                            loader: 'style-loader',
-                        },
-                        {
-                            loader: 'css-loader',
-                        },
-                    ],
+                            loader: "css-loader",
+                            options: {
+                                modules: true
+                            }
+                        }
+                    ]
                 },
             ],
         },
