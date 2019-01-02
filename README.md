@@ -2,6 +2,8 @@
 
 Dash Leaflet is a Dash component library.
 
+[!demo](images/demo-leaflet.gif)
+
 ## Notes and Caveat
 
 * We are using yarn, which is why package-lock is deleted and we have yarn.lock
