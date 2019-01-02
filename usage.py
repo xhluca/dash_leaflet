@@ -1,4 +1,4 @@
-import dash_leaflet
+import dash_leaflet as dll
 import dash
 from dash.dependencies import Input, Output
 import dash_html_components as html
@@ -9,17 +9,19 @@ app.scripts.config.serve_locally = True
 app.css.config.serve_locally = True
 
 app.layout = html.Div([
-    dash_leaflet.DashLeaflet(
-        id='input',
-        value='my-value',
-        label='my-label'
-    ),
-    html.Div(id='output')
+    dll.Map(
+        id='leaflet-map',
+        center=[51.505, -0.09],
+        zoom=13,
+        children=[
+            dll.TileLayer(id='tile-layer'),
+            dll.Marker(
+                position=[51.505, -0.09],
+                children=[dll.Popup(children="Foo Bar")]
+            )
+        ]
+    )
 ])
-
-@app.callback(Output('output', 'children'), [Input('input', 'value')])
-def display_output(value):
-    return 'You have entered {}'.format(value)
 
 
 if __name__ == '__main__':
